@@ -1,5 +1,6 @@
 <?php
 
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/tour-package', function () {
+    return view('tourpackage.tour_package');
+});
+Route::get('/tour-package/detail', function () {
+    return view('tourpackage.tour_package_detail');
+});
+
+Route::get('/destination/add', function(){
+    return view('destination.add_destination');
 });
