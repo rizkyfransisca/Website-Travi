@@ -33,19 +33,19 @@
         </a>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item me-3">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="destination.html">Destination</a>
+            <a class="nav-link" href="/destination">Destination</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="event_festival.html">Event & Festival</a>
+            <a class="nav-link" href="/event-festival">Event & Festival</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="tour_package.html">Tour Package</a>
+            <a class="nav-link active" href="/tour-package">Tour Package</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="">Join Us</a>
+            <a class="nav-link" href="/join-us">Join Us</a>
           </li>
           <li class="nav-item me-2">
             <a class="nav-link" href="">About</a>
