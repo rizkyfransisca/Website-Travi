@@ -81,7 +81,7 @@
                 adalah ritual kuno Bali yang disebut sebagai Sanghyang, yang
                 bertujuan untuk mengusir roh jahat.
               </p>
-              <a href="" class="" style="float: right;">Lihat detail</a>
+              <a href="/event-festival/detail" class="" style="float: right;">Lihat detail</a>
             </div>
           </div>
         </div>

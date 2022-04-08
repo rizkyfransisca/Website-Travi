@@ -17,7 +17,7 @@
     .bg-artikel {
       color: white;
       background-image: url("/Gambar/artikel-tana-toraja.png");
-      height: 400px;
+      height: 300px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -38,10 +38,13 @@
         </a>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item me-3">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="destination.html">Destination</a>
+            <a class="nav-link active" href="/destination">Destination</a>
+          </li>
+          <li class="nav-item me-3">
+            <a class="nav-link" href="/event-festival">Event & Festival</a>
           </li>
           <li class="nav-item me-3">
             <a class="nav-link" href="tour_package.html">Tour Package</a>

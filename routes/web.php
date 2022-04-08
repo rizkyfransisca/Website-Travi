@@ -30,12 +30,20 @@ Route::get('/destination', function(){
     return view('destination.destination');
 });
 
+Route::get('/destination/detail', function(){
+    return view('destination.destination-detail');
+});
+
 Route::get('/destination/add', function(){
     return view('destination.add_destination');
 });
 
 Route::get('/event-festival', function(){
     return view('eventfestival.event_festival');
+});
+
+Route::get('/event-festival/detail', function(){
+    return view('eventfestival.event_festival_detail');
 });
 
 Route::get('/join-us', function(){

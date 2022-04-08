@@ -91,7 +91,7 @@
                 Sulawesi Selatan merupakan salah satu daya tarik industri
                 pariwisata Indonesia, hal ini merupakan ...
               </p>
-              <a href="artikel-tana-toraja.html" class="" style="float: right;"
+              <a href="/destination/detail" class="" style="float: right;"
                 >Lihat detail</a
               >
             </div>
