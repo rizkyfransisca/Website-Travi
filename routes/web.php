@@ -38,6 +38,10 @@ Route::get('/destination/add', function(){
     return view('destination.add_destination');
 });
 
+Route::get('/destination/data', function(){
+    return view('destination.data_destination');
+});
+
 Route::get('/event-festival', function(){
     return view('eventfestival.event_festival');
 });
@@ -46,6 +50,15 @@ Route::get('/event-festival/detail', function(){
     return view('eventfestival.event_festival_detail');
 });
 
+Route::get('/event-festival/data', function(){
+    return view('eventfestival.data_event_festival');
+});
+
+Route::get('/event-festival/add', function(){
+    return view('eventfestival.add_event_festival');
+});
+
 Route::get('/join-us', function(){
     return view('joinus.join_us');
 });
+

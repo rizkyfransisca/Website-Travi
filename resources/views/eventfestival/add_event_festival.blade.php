@@ -40,10 +40,12 @@
         </a>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item me-3">
-            <a class="nav-link active" href="/destination/data">Destination</a>
+            <a class="nav-link" href="/destination/data">Destination</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="/event-festival/data">Event & Festival</a>
+            <a class="nav-link active" href="/event-festival/data"
+              >Event & Festival</a
+            >
           </li>
         </ul>
       </div>
@@ -51,7 +53,7 @@
     <div class="container-fluid bg-home-1" style="height: 100px;"></div>
     <div class="container col-lg-7 mx-auto mt-5">
       <form>
-        <h3 class="text-center mb-5">Data Destination</h3>
+        <h3 class="text-center mb-5">Event & Festival</h3>
         <div class="row mb-4">
           <label class="col-sm-2 col-form-label">Judul:</label>
           <div class="col-sm-10">
