@@ -12,6 +12,16 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="/css/trix.css" />
+    <script type="text/javascript" src="/js/trix.js"></script>
+
+    <style>
+      trix-toolbar [data-trix-button-group="file-tools"] {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <!--Navbar Atas-->
@@ -40,7 +50,7 @@
             <a class="nav-link" href="/tour-package">Tour Package</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="/join-us">Join Us</a>
+            <a class="nav-link active" href="/tour-package/create">Join Us</a>
           </li>
           <li class="nav-item me-2">
             <a class="nav-link" href="">About</a>
@@ -57,75 +67,156 @@
       </div>
     </div>
     <div class="container col-lg-6 mx-auto mt-5">
-      <form>
+      <form method="POST" action="/tour-package" enctype="multipart/form-data">
+        @csrf
         <h3 class="text-center mb-5">Isi Data</h3>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">Nama/Perusahaan:</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" />
+            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ old('nama') }}" required />
+            @error('nama')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+        </div>
+        <div class="row mb-4">
+          <label class="col-sm-3 col-form-label">Nama Paket Tour:</label>
+          <div class="col-sm-9">
+            <input type="text" name="nama_paket" class="form-control @error('nama_paket') is-invalid @enderror" value="{{ old('nama_paket') }}" required />
+            @error('nama_paket')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">Email:</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" />
+            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required />
+            @error('email')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">No.Telepon:</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" />
+            <input type="text" name="nomor_telepon" class="form-control @error('nomor_telepon') is-invalid @enderror" value="{{ old('nomor_telepon') }}" required/>
+            @error('nomor_telepon')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
-          <label class="col-sm-3 col-form-label">Alamat</label>
+          <label class="col-sm-3 col-form-label">Alamat:</label>
           <div class="col-sm-9">
-            <textarea class="form-control" id="desc"></textarea>
+            <textarea name="alamat" id="alamat" value="{{ old('alamat') }}" style="width: 100%;" required></textarea>
+            @error('alamat')
+              <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">Kegiatan Wisata:</label>
           <div class="col-sm-9">
-            <textarea class="form-control" id="desc"></textarea>
+            <input id="kegiatan_wisata" type="hidden" name="kegiatan_wisata" value="{{ old('kegiatan_wisata') }}" required>
+            <trix-editor input="kegiatan_wisata"></trix-editor>
+            @error('kegiatan_wisata')
+              <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
-          <label class="col-sm-3 col-form-label">Deskripsi</label>
+          <label class="col-sm-3 col-form-label">Deskripsi:</label>
           <div class="col-sm-9">
-            <textarea class="form-control" id="desc"></textarea>
+            <input id="deskripsi" type="hidden" name="deskripsi" value="{{ old('deskripsi') }}" required>
+            <trix-editor input="deskripsi"></trix-editor>
+            @error('deskripsi')
+              <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">Durasi:</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" />
+            <input type="text" name="durasi" class="form-control @error('durasi') is-invalid @enderror" value="{{ old('durasi') }}" required/>
+            @error('durasi')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">Pelayanan:</label>
           <div class="col-sm-9">
-            <textarea class="form-control" id="desc"></textarea>
+            <input id="pelayanan" type="hidden" name="pelayanan" value="{{ old('pelayanan') }}" required>
+            <trix-editor input="pelayanan"></trix-editor>
+            @error('pelayanan')
+              <p class="text-danger">{{ $message }}</p>
+            @enderror
           </div>
         </div>
         <div class="row mb-4">
           <label class="col-sm-3 col-form-label">Harga:</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" />
+            <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror" value="{{ old('harga') }}" />
+            @error('harga')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
           </div>
         </div>
-        <div class="row mt-5">
-          <div class="col-sm-10">
-            <a
-              class="btn-mulai px-3 py-2 align-self-center"
-              href=""
-              role="button"
-              >Mulai Sekarang</a
-            >
+        <div class="row mb-4">
+          <label class="col-sm-3 col-form-label">Gambar:</label>
+          <div class="col-sm-9">
+            <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar" onchange="previewImage()">
+            <img class="img-preview img-fluid mt-3 col-sm-5">
+            @error('gambar')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+            @enderror
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9">
+            <button class="btn btn-mulai">Mulai Sekarang</button>
           </div>
         </div>
       </form>
     </div>
 
     <br /><br /><br /><br /><br /><br /><br /><br />
+    <script>
+      // menonaktifkan file upload di trix-editor
+      document.addEventListener("trix-file-accept", function (e) {
+        // menonaktifkan file upload di trix-editor
+        e.preventDefault();
+      });
+
+      function previewImage(){
+        const image = document.querySelector('#gambar')
+        const imgPreview = document.querySelector('.img-preview')
+
+        imgPreview.style.display = 'block'
+
+        const oFReader = new FileReader()
+        oFReader.readAsDataURL(image.files[0])
+
+        oFReader.onload = function(oFREvent){
+            imgPreview.src = oFREvent.target.result
+        }
+      }
+    </script>
   </body>
 </html>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\EventFestivalController;
+use App\Http\Controllers\TourPackageController;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,10 @@ Route::get('/', function () {
 
 Route::resource('destination', DestinationController::class);
 Route::resource('event-festival', EventFestivalController::class);
+
+// Tour Package
+Route::get('/tour-package', [TourPackageController::class, 'index']);
+Route::get('/tour-package/create', [TourPackageController::class, 'create']);
+Route::get('/tour-package/{package:slug}', [TourPackageController::class, 'show']);
+Route::post('/tour-package', [TourPackageController::class, 'store']);
 

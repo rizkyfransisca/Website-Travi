@@ -21,6 +21,8 @@ class CreateTourPackagesTable extends Migration
             $table->text('excerpt');
             $table->text('alamat');
             $table->text('kegiatan_wisata');
+            $table->string('gambar');
+            $table->string('nama_paket');
             $table->text('deskripsi');
             $table->string('durasi');
             $table->text('pelayanan');

@@ -22,6 +22,9 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+    #img-value {
+      display: none;
+    }
     .row{
       margin: 20px;
     }
@@ -31,78 +34,39 @@
   </style>
   <body>
     <!--Navbar Atas-->
-    <div class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid px-4">
-        <a class="travi navbar-brand ms-2" href="">
-          <img
-            src="/Gambar/daun.png"
-            width="30px"
-            class="d-inline-block mb-3"
-            alt=""
-          />
-          Travi
-        </a>
-        <ul class="navbar-nav justify-content-end">
-          <li class="nav-item me-3">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item me-3">
-            <a class="nav-link" href="destination.html">Destination</a>
-          </li>
-          <li class="nav-item me-3">
-            <a class="nav-link" href="event_festival.html">Event & Festival</a>
-          </li>
-          <li class="nav-item me-3">
-            <a class="nav-link active" href="tour_package.html">Tour Package</a>
-          </li>
-          <li class="nav-item me-3">
-            <a class="nav-link" href="">Join Us</a>
-          </li>
-          <li class="nav-item me-2">
-            <a class="nav-link" href="">About</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <p id="img-value">{{ $package->gambar }}</p>
+    @include('tourpackage.partials.navbar')
     <div class="row">
       <div class="col-6">
-        <div class="container-fluid bg-artikel"></div>
-        <p style="margin-top: 20px;">Paket tour ini merupakan paket tour yang sangat sesuai dengan
-            kamu yang memiliki jiwa travelling yang tinggi. Selain itu paket
-            tour ini juga menyediakan berbagai hal yang kamu bisa lakukan di tana toraja. Tana toraja menjadi salah satu destinasi wisata favorit di Indonesia. Bersama Toraja Travel kalian bisa mendapatkan paket tour murah dan menyenangkan. Pelayanan-pelayanan yang disediakan juga sangat cocok untuk mengeksplor keindahan tana toraja</p>
+        <div class="container-fluid bg-artikel" id="bg-artikel"></div>
+        <p style="margin-top: 20px;">{!! $package->deskripsi !!}</p>
       </div>
       <div class="col-6"><div class="container">
         <div class="card shadow">
-            <h2 style="margin-bottom: 20px">Eksplor Tana Toraja</h2>
-            
-            <p><b>Nama Travel:</b> TorajaTravel</p>
-            <p><b>Durasi:</b> 4 Hari</p>
-            <p><b>Harga:</b> 750.000</p>
+            <h2 style="margin-bottom: 20px">{{ $package->nama_paket }}</h2>
+            <p><b>Nama Travel:</b> {{ $package->nama }}</p>
+            <p><b>Durasi:</b> {{ $package->durasi }}</p>
+            <p><b>Harga:</b> {{ $package->harga }}</p>
             <p><b>Kegiatan Wisata:</b></p>
-            <ul>
-              <li>Mengunjungi rumah adat</li>
-              <li>Menjelajahi hutan tanah toraja</li>
-              <li>Mengunjungi pantai tanah toraja</li>
-              <li>Melakukan snorkling bersama paus</li>
-              <li>Tracking ke bukit toraja</li>
-            </ul>
+            {!! $package->kegiatan_wisata !!}
       
             <p><b>Pelayanan:</b></p>
-            <ul>
-              <li>Full menginap di tempat yang nyaman</li>
-              <li>Makan 3 kali sehari</li>
-              <li>Makanan khas toraja</li>
-              <li>Akomodaasi terjamin</li>
-            </ul>
-            <p><b>Email:</b> toraja.travel@gmail.com</p>
-            <p><b>No telepon:</b> 081938713808</p>
-            <p><b>Alamat:</b> Jalan Tana Toraja</p>
+            {!! $package->pelayanan !!}
+            <p><b>Email:</b> {{ $package->email }}</p>
+            <p><b>No telepon:</b> {{ $package->nomor_telepon }}</p>
+            <p><b>Alamat:</b> {!! $package->alamat !!}</p>
             <button class="btn btn-success">Pesan Paket Wisata</button>
         </div>
         
         
       </div></div>
     </div>
-    
+    <script>
+      imgValue = document.getElementById('img-value').textContent
+      imgUrl = "/Gambar/Tour Package/" + imgValue
+      console.log(imgUrl);
+      document.getElementById('bg-artikel').style.backgroundImage = `url("${imgUrl}")`; 
+    </script>
+  </body>
     
 </html>
