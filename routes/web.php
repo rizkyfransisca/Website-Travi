@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\EventFestivalController;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
@@ -18,47 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/tour-package', function () {
-    return view('tourpackage.tour_package');
-});
-
-Route::get('/tour-package/detail', function () {
-    return view('tourpackage.tour_package_detail');
-});
-
-Route::get('/destination', function(){
-    return view('destination.destination');
-});
-
-Route::get('/destination/detail', function(){
-    return view('destination.destination-detail');
-});
-
-Route::get('/destination/add', function(){
-    return view('destination.add_destination');
-});
-
-Route::get('/destination/data', function(){
-    return view('destination.data_destination');
-});
-
-Route::get('/event-festival', function(){
-    return view('eventfestival.event_festival');
-});
-
-Route::get('/event-festival/detail', function(){
-    return view('eventfestival.event_festival_detail');
-});
-
-Route::get('/event-festival/data', function(){
-    return view('eventfestival.data_event_festival');
-});
-
-Route::get('/event-festival/add', function(){
-    return view('eventfestival.add_event_festival');
-});
-
-Route::get('/join-us', function(){
-    return view('joinus.join_us');
-});
+Route::resource('destination', DestinationController::class);
+Route::resource('event-festival', EventFestivalController::class);
 
