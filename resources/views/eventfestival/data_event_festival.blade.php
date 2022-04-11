@@ -31,57 +31,67 @@
             <a class="nav-link" href="/destination/data">Destination</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link active" href="/event-festival/data">Event & Festival</a>
+            <a class="nav-link active" href="/admin/event-festival">Event & Festival</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="container-fluid bg-home-1"></div>
-    <div class="container mt-4 title-home-1">
+    <div class="container mt-4 mb-4 title-home-1">
       <h4 class="mb-4">Event & Festival</h4>
       <a
-        class="btn-mulai px-3 py-2 align-self-center"
-        href="/event-festival/add"
+        class="btn-mulai align-self-center"
+        href="/admin/event-festival/create"  
         role="button"
-        >Tambah</a
-      >
+        >Tambah</a>
+        @if(session()->has('success'))
+        <div class="alert alert-success mt-3" role="alert">
+          {{ session('success') }}
+        </div>
+        @endif
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <div class="table-responsive-lg">
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th scope="col">No.</th>
+              <th scope="col">Id</th>
               <th scope="col">Judul</th>
-              <th scope="col">Deskripsi</th>
+              <th scope="col">Slug</th>
+              <th scope="col">Excerpt</th>
               <th scope="col">Lokasi</th>
               <th scope="col">Gambar</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($event as $event)
             <tr>
-              <th scope="row">1</th>
-              <td>Upacara adat Bali Tari kecak</td>
+              <th scope="row">{{ $event->id }}</th>
+              <td>{{ $event->judul }}</td>
+              <td>{{ $event->slug }}</td>
+              <td>{!! $event->excerpt !!}</td>
+              <td>{{ $event->lokasi }}</td>
+              <td>{{ $event->gambar }}</td>
               <td>
-                salah satu atraksi wisata ikonik di Bali yang tidak boleh
-                dilewatkan adalah pertunjukan tarian Kecak. Awalnya tari Kecak
-                adalah ritual kuno Bali yang disebut sebagai Sanghyang, yang
-                bertujuan untuk mengusir roh jahat.
-              </td>
-              <td>Bali</td>
-              <td>Gambar</td>
-              <td>
-                <div class="d-flex justify-content-start">
-                  <div class="me-2">
-                    <a href="" class="btn btn-danger">Delete</a>
+                <div class="text-center">  
+                  <div class="mb-2">
+                    <a href="/admin/event-festival/{{ $event->id }}" class="btn btn-success">View</a>
+                  </div>
+                  <div class="mb-2">
+                    <a href="/admin/event-festival/{{ $event->id }}/edit" class="btn btn-warning">Edit</a>
                   </div>
                   <div>
-                    <a href="" class="btn btn-warning">Edit</a>
+                    <form action="/admin/event-festival/{{ $event->id }}" method="post">
+                      @csrf
+                      @method('delete')
+                      <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Delete</button>
+                    </form>
                   </div>
                 </div>
               </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
