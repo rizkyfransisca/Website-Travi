@@ -16,9 +16,10 @@
   </head>
   <body>
     <!--Navbar Atas-->
+    <p id="img-value" style="display: none">{{ $event->gambar }}</p>
     <div class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid px-4">
-        <a class="travi navbar-brand ms-2" href="">
+        <a class="travi navbar-brand ms-2" href="/">
           <img
             src="/Gambar/daun.png"
             width="30px"
@@ -46,21 +47,24 @@
             <a class="nav-link" href="/join-us">Join Us</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="container-fluid bg-home-1"></div>
-    <div class="container mt-4 title-home-1">
-      <h3 class="mb-4">Upacara adat Bali Tari kecak</h3>
-      <p>Lokasi : <i>Bali</i></p>
-      <p>
-        salah satu atraksi wisata ikonik di Bali yang tidak boleh dilewatkan
-        adalah pertunjukan tarian Kecak. Awalnya tari Kecak adalah ritual kuno
-        Bali yang disebut sebagai Sanghyang, yang bertujuan untuk mengusir roh
-        jahat.
-      </p>
+    <div class="container bg-home-1" id="bg-home-1"></div>
+    <div class="container mt-4 mb-5 title-home-1">
+        <h3 class="mb-4">{{ $event->judul }}</h3>
+        <p>Lokasi : <i>{{ $event->lokasi }}</i></p>
+        <p>{!! $event->deskripsi !!}</p>
+        <a href="/event-festival">Back to post</a>
     </div>
+
+    <script>
+      imgValue = document.getElementById('img-value').textContent
+      imgUrl = "/Gambar/eventfestival/" + imgValue
+      console.log(imgUrl);
+      document.getElementById('bg-home-1').style.backgroundImage = `url("${imgUrl}")`; 
+    </script>
   </body>
 </html>
