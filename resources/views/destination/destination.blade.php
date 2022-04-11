@@ -74,124 +74,30 @@
     <div class="container mt-4 title-home-1">
       <h4 class="mb-4">Destination</h4>
     </div>
+
     <div class="container">
       <div class="row">
-        <div class="col-6">
-          <div class="carddes"></div>
-          <div class="card cardkiri" style="width: 30rem;">
-            <img
-              src="/Gambar/image1-destination.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Tana Toraja</h5>
-              <p class="card-text">
-                Tana Toraja adalah ikon budaya dan pariwisata di Propinsi
-                Sulawesi Selatan merupakan salah satu daya tarik industri
-                pariwisata Indonesia, hal ini merupakan ...
-              </p>
-              <a href="/destination/detail" class="" style="float: right;"
-                >Lihat detail</a
-              >
+        @foreach ($list as $event)
+          <div class="col-6">
+            <div class="card" style="width: 28rem;">
+              <img
+                src="/Gambar/destinations/{{ $event->gambar }}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  {{ $event->judul }}
+                </h5>
+                <p class="card-text">
+                  <b>Lokasi :</b> <i>{{ $event->lokasi }}</i><br>
+                  {!! $event->excerpt !!}
+                </p>
+                <a href="/destination/{{ $event->id }}" class="" style="float: right;">Lihat detail</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="carddes"></div>
-          <div class="card cardkanan" style="width: 30rem;">
-            <img
-              src="/Gambar/image1-destination.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam iure similique facere adipisci deleniti excepturi
-                nulla expedita quasi veniam! Labore...
-              </p>
-              <a href="" class="" style="float: right;">Lihat detail</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="carddes"></div>
-          <div class="card cardkiri" style="width: 30rem;">
-            <img
-              src="/Gambar/image1-destination.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam iure similique facere adipisci deleniti excepturi
-                nulla expedita quasi veniam! Labore...
-              </p>
-              <a href="" class="" style="float: right;">Lihat detail</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="carddes"></div>
-          <div class="card cardkanan" style="width: 30rem;">
-            <img
-              src="/Gambar/image1-destination.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam iure similique facere adipisci deleniti excepturi
-                nulla expedita quasi veniam! Labore...
-              </p>
-              <a href="" class="" style="float: right;">Lihat detail</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="carddes"></div>
-          <div class="card cardkiri" style="width: 30rem;">
-            <img
-              src="/Gambar/image1-destination.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam iure similique facere adipisci deleniti excepturi
-                nulla expedita quasi veniam! Labore...
-              </p>
-              <a href="" class="" style="float: right;">Lihat detail</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="carddes"></div>
-          <div class="card cardkanan" style="width: 30rem;">
-            <img
-              src="/Gambar/image1-destination.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title text-center">Card title</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam iure similique facere adipisci deleniti excepturi
-                nulla expedita quasi veniam! Labore...
-              </p>
-              <a href="" class="" style="float: right;">Lihat detail</a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </body>

@@ -14,9 +14,11 @@
     />
   </head>
   <style>
+    #img-value {
+      display: none;
+    }
     .bg-artikel {
       color: white;
-      background-image: url("/Gambar/artikel-tana-toraja.png");
       height: 300px;
       background-position: center;
       background-repeat: no-repeat;
@@ -24,6 +26,7 @@
     }
   </style>
   <body>
+    <p id="img-value">{{ $desti->gambar }}</p>
     <!--Navbar Atas-->
     <div class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid px-4">
@@ -58,11 +61,15 @@
         </ul>
       </div>
     </div>
-    <div class="container-fluid bg-artikel"></div>
-    <div class="container" style="margin-top: 1cm">
-      <h2 style="margin-bottom: 20px">Tana Toraja</h2>
-      <p><i>Lokasi : Sulawesi Selatan</i></p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quidem sint sapiente est debitis, incidunt veniam vitae itaque atque. Veniam suscipit doloremque mollitia similique adipisci ea molestias dicta, accusantium qui, dolorem at autem nemo, sapiente ipsa. Neque et nesciunt, tempore placeat consectetur eaque quo in tempora beatae aut. Harum a cum debitis vitae? Deserunt laboriosam quaerat fuga esse molestiae optio neque ad debitis iusto veritatis. Animi, rerum minus libero tempora ipsam laborum placeat delectus pariatur consequuntur, numquam similique ea fugiat nisi sunt perspiciatis autem sequi neque veniam ab. Odio dolores laborum, saepe facere alias dicta excepturi tempore nihil hic voluptatem.</p>
+    <div class="container-fluid bg-artikel" id='bg-artikel'></div>
+    <div class="container mt-4 mb-5 title-home-1">
+        <h3 class="mb-4">{{ $desti->judul }}</h3>
+        <p>Lokasi : <i>{{ $desti->lokasi }}</i></p>
+        <p>{!! $desti->deskripsi !!}</p>
     </div>
-    <br><br><br><br><br><br><br><br><br><br>
+    <script>
+      imgValue = document.getElementById('img-value').textContent
+      imgUrl = "/Gambar/destinations/" + imgValue
+      document.getElementById('bg-artikel').style.backgroundImage = `url("${imgUrl}")`; 
+    </script>
 </html>

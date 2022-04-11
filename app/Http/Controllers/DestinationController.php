@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class DestinationController extends Controller
@@ -13,7 +14,8 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        //
+        $desti = Destination::get();
+        return view('destination.destination', ['list' => $desti]);
     }
 
     /**
@@ -45,7 +47,7 @@ class DestinationController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('destination.destination-detail', ['desti' => Destination::find($id)]);
     }
 
     /**
