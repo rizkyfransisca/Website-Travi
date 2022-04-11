@@ -51,12 +51,13 @@
     <div class="container-fluid bg-home-1" style="height: 100px;"></div>
     <div class="container col-lg-7 mx-auto mt-5">
       <h3 class="text-center mb-5">Destinations</h3>
-      <form action="/admin/destination" method="POST" enctype="multipart/form-data">
+      <form action="/admin/destination/{{ $destination->id }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <div class="row mb-4">
           <label class="col-sm-2 col-form-label">Judul:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" id="judul" required value="{{ old('judul') }}"/>
+            <input type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" id="judul" required value="{{ old('judul', $destination->judul) }}"/>
             @error('judul')
               <div class="invalid-feedback">
                 {{ $message }}
@@ -67,7 +68,7 @@
         <div class="row mb-4">
           <label class="col-sm-2 col-form-label">Lokasi:</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" name="lokasi" id="lokasi" required value="{{ old('lokasi') }}"/>
+            <input type="text" class="form-control" name="lokasi" id="lokasi" required value="{{ old('lokasi', $destination->lokasi) }}"/>
           </div>
         </div>
         <div class="row mb-4">
@@ -85,7 +86,7 @@
         <div class="row mb-4">
           <label class="col-sm-2 col-form-label">Deskripsi</label>
           <div class="col-sm-10">
-            <input id="deskripsi" type="hidden" name="deskripsi" value="{{ old('deskripsi') }}"/>
+            <input id="deskripsi" type="hidden" name="deskripsi" value="{{ old('deskripsi', $destination->deskripsi) }}"/>
             <trix-editor input="deskripsi"></trix-editor>
             @error('deskripsi')
               <p class="text-danger">{{ $message }}</p>
@@ -95,7 +96,7 @@
         <div class="row">
           <div class="col-sm-2"></div>
           <div class="col-sm-10">
-            <button class="btn btn-mulai" type="submit">Tambah Data</button>
+            <button class="btn btn-mulai" type="submit">Edit Data</button>
           </div>
         </div>
       </form>

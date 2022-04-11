@@ -28,10 +28,10 @@
         </a>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item me-3">
-            <a class="nav-link active" href="/destination/data">Destination</a>
+            <a class="nav-link active" href="/admin/destination">Destination</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="/event-festival/data"
+            <a class="nav-link" href="/admin/event-festival"
               >Event & Festival</a
             >
           </li>
@@ -43,46 +43,58 @@
       <h4 class="mb-4">Data Destination</h4>
       <a
         class="btn-mulai px-3 py-2 align-self-center"
-        href="/destination/add"
+        href="/admin/destination/create"
         role="button"
         >Tambah</a
       >
+      @if(session()->has('success'))
+        <div class="alert alert-success mt-3" role="alert">
+          {{ session('success') }}
+        </div>
+      @endif
     </div>
-    <div class="container mt-3">
+    <div class="container">
       <div class="table-responsive-lg">
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
               <th scope="col">No.</th>
               <th scope="col">Judul</th>
-              <th scope="col">Deskripsi</th>
+              <th scope="col">Slug</th>
+              <th scope="col">Excerpt</th>
               <th scope="col">Lokasi</th>
               <th scope="col">Gambar</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($destination as $destinations)
             <tr>
-              <th scope="row">1</th>
-              <td>Toraja</td>
-              <td>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                enim repellat libero praesentium! Dolorum, aut optio unde at hic
-                culpa fugit, est tenetur sit beatae iure fuga eaque totam enim.
-              </td>
-              <td>Sulawesi</td>
+              <th scope="row">{{ $destinations->id }}</th>
+              <td>{{ $destinations->judul }}</td>
+              <td>{{ $destinations->slug }}</td>
+              <td>{!! $destinations->excerpt !!}</td>
+              <td>{{ $destinations->lokasi }}</td>
               <td>Gambar</td>
               <td>
-                <div class="d-flex justify-content-start">
-                  <div class="me-2">
-                    <a href="" class="btn btn-danger">Delete</a>
+                <div class="text-center">  
+                  <div class="mb-2">
+                    <a href="/admin/destination/{{ $destinations->id }}" class="btn btn-success">View</a>
+                  </div>
+                  <div class="mb-2">
+                    <a href="/admin/destination/{{ $destinations->id }}/edit" class="btn btn-warning">Edit</a>
                   </div>
                   <div>
-                    <a href="" class="btn btn-warning">Edit</a>
+                    <form action="/admin/destination/{{ $destinations->id }}" method="post">
+                      @csrf
+                      @method('delete')
+                      <button class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Delete</button>
+                    </form>
                   </div>
                 </div>
               </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

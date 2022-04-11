@@ -6,6 +6,7 @@ use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\TourPackageController;
 use App\Http\Controllers\EventFestivalController;
 use App\Http\Controllers\AdminEventFestivalController;
+use App\Http\Controllers\AdminDestinationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/', function () {
 Route::resource('destination', DestinationController::class);
 Route::resource('event-festival', EventFestivalController::class);
 Route::resource('admin/event-festival', AdminEventFestivalController::class);
+Route::resource('admin/destination', AdminDestinationController::class);
 
 // Tour Package
 Route::get('/tour-package', [TourPackageController::class, 'index']);

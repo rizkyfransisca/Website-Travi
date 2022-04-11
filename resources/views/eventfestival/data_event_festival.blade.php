@@ -28,7 +28,7 @@
         </a>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item me-3">
-            <a class="nav-link" href="/destination/data">Destination</a>
+            <a class="nav-link" href="/admin/destination">Destination</a>
           </li>
           <li class="nav-item me-3">
             <a class="nav-link active" href="/admin/event-festival">Event & Festival</a>
