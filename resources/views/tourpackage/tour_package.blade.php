@@ -40,7 +40,7 @@
                   {{$package->excerpt}}
                 </p>
                 <p class="card-text"><b>Harga:</b> Rp {{ number_format($package->harga,0,',','.')  }}</p>
-                <p class="card-text"><b>No telepon:</b> {{ $package->no_telepon }}</p>
+                <p class="card-text"><b>No telepon:</b> {{ $package->nomor_telepon }}</p>
                 <p class="card-text"><b>Durasi:</b> {{ $package->durasi }}</p>
                 <a href="/tour-package/{{ $package->slug }}" class="" style="float: right;"
                   >Lihat detail</a
