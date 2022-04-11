@@ -14,7 +14,7 @@ class TourPackage extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'nama_paket'
             ]
         ];
     }

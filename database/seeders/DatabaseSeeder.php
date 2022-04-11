@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\EventFestival;
+use App\Models\TourPackage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -46,6 +47,36 @@ class DatabaseSeeder extends Seeder
             'gambar' => '',
             'excerpt' => 'Grebegan adalah salah satu tradisi upacara adat yang memiliki sifat kesyukuran, dilakukan bersama-sama oleh masyarakat suku Jawa dengan tokoh utamanya yaitu seorang raja. Upacara adat Grebegan ini dilaksanakan selama tiga kali dalam datu tahun',
             'deskripsi' => '<p>Grebegan adalah salah satu tradisi upacara adat yang memiliki sifat kesyukuran, dilakukan bersama-sama oleh masyarakat suku Jawa dengan tokoh utamanya yaitu seorang raja. Upacara adat Grebegan ini dilaksanakan selama tiga kali dalam datu tahun, diantaranya yaitu pada tanggal 12 Mulud, 1 Syawal, dan juga tanggal 10 bulan ke-12 Masehi.</p><p>Pada saat upacara grebegan ini raja mengeluarkan sedekahnya berupa hasil alam seperti sayuran dan juga sejenisnya, umumnya sedekah ini dibentuk seperti bidang kerucut seperti gunung, yang akan di rebutkan oleh masyakat.</p>'
+        ]);
+
+        TourPackage::create([
+            'nama' => 'Bali Travel',
+            'nama_paket' => 'Keliling Bali Selatan',
+            'email' => 'rizky.royal@gmail.com',
+            'nomor_telepon' => '081938713808',
+            'alamat' => 'Desa Sukawati, Gianyar',
+            'excerpt' => 'Paket travel ini sangat cocok bagi anda yang ingin mengeksplorasi Bali selatan dengan keindahan pantai nya yang sangat-sangat luar biasa. Selain itu, paket travel ini juga sangat cocok buat anda yang...',
+            'kegiatan_wisata' => '<ul><li>Mengunjungi Pura Uluwatu</li><li>Mengunjungi Pantai Kuta</li><li>Mengunjungi Pantai Dreamland</li><li>Mengunjungi Pantai Pandawa</li><li>Mengunjungi Krisna Oleh-Oleh Bali</li></ul>',
+            'gambar' => '1649672768gambar bali.jpg',
+            'deskripsi' => '<div>Paket travel ini sangat cocok bagi anda yang ingin mengeksplorasi Bali selatan dengan keindahan pantai nya yang sangat-sangat luar biasa. Selain itu, paket travel ini juga sangat cocok buat anda yang ingin menikmati sunset yang indah di pantai kuta. Dan untuk kalian yang ingin membawa oleh-oleh khas Bali yang tentunya sangat-sangat keren, paket travel ini juga menawarkan kunjungan ke Krisna Oleh-Oleh Bali, salah satu pusat oleh oleh terkenal di bali</div>',
+            'durasi' => '3 Hari',
+            'pelayanan' => '<ul><li>Makan 3 kali sehari</li><li>Mobil bisa pilih</li><li>Hotel mewah</li><li>Free es kelapa muda di pantai kuta</li><li>Bisa extend sampe jam 12 malam (Harga disesuaikan)</li></ul>',
+            'harga' => 750000,
+        ]);
+
+        TourPackage::create([
+            'nama' => 'Wayan Travel',
+            'nama_paket' => 'Keliling Bali Utara',
+            'email' => 'rizky.royal@gmail.com',
+            'nomor_telepon' => '081938713808',
+            'alamat' => 'Desa Munduk, Tabanan',
+            'excerpt' => 'Paket wisata ini sangat cocok bagi kalian yang sangat sumpek dengan pekerjaan duniawi. Pada paket wisata ini, kita akan mengeksplor Bali bagian utara dengan keindahan alam nya dan kesejukan gunung-gun...',
+            'kegiatan_wisata' => '<ul><li>Berwisata ke kebun raya Bedugul</li><li>Berwisata ke pantai Buleleng</li><li>Berwisata ke Kintamani (include kopi)</li><li>Mengunjungi hutan pinus</li><li>Mengunjungi pedesaan di Bali Utara</li></ul>',
+            'gambar' => '1649673385kintamani.jpg',
+            'deskripsi' => '<div>Paket wisata ini sangat cocok bagi kalian yang sangat sumpek dengan pekerjaan duniawi. Pada paket wisata ini, kita akan mengeksplor Bali bagian utara dengan keindahan alam nya dan kesejukan gunung-gunung nya. Pada paket wisata ini, kita juga akan mengunjungi desa-desa kuno yang ada di Bali utara. Selain itu, kita juga akan melakukan <em>chill&nbsp;</em>di coffee shop yang ada di daerah Kintamani, tentu saja disini kalian juga bisa berswafoto dengan latar gunung batur yang sangat cantik dan menawan. Dan tidak kalah penting, pada paket wisata ini kita juga mengunjungi salah satu kebun raya terbesar yang ada di Bali.</div>',
+            'durasi' => '4 Hari',
+            'pelayanan' => '<ul><li>Makan 3 kali sehari</li><li>Mobil avanza atau kijang innova</li><li>Hotel bintang 5</li><li>Free refill di coffee shop Kintamani</li><li>Free ticket di kebun raya untuk 2 orang</li></ul>',
+            'harga' => 800000,
         ]);
     }
 }

@@ -52,7 +52,7 @@ class TourPackageController extends Controller
             $validatedData['gambar'] = $waktu . $fileName;
         }
         $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 200, '...');
-        $validatedData['slug']  = SlugService::createSlug(TourPackage::class, 'slug', $request->nama);
+        $validatedData['slug']  = SlugService::createSlug(TourPackage::class, 'slug', $request->nama_paket);
         TourPackage::create($validatedData);
         return redirect('/tour-package');
     }

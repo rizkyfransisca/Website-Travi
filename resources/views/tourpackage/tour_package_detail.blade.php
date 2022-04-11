@@ -46,7 +46,7 @@
             <h2 style="margin-bottom: 20px">{{ $package->nama_paket }}</h2>
             <p><b>Nama Travel:</b> {{ $package->nama }}</p>
             <p><b>Durasi:</b> {{ $package->durasi }}</p>
-            <p><b>Harga:</b> {{ $package->harga }}</p>
+            <p><b>Harga:</b> Rp {{ number_format($package->harga,0,',','.')  }}</p>
             <p><b>Kegiatan Wisata:</b></p>
             {!! $package->kegiatan_wisata !!}
       
@@ -55,7 +55,11 @@
             <p><b>Email:</b> {{ $package->email }}</p>
             <p><b>No telepon:</b> {{ $package->nomor_telepon }}</p>
             <p><b>Alamat:</b> {!! $package->alamat !!}</p>
-            <button class="btn btn-success">Pesan Paket Wisata</button>
+            @if ($package->nomor_telepon[0] == "0")
+              <a href="https://wa.me/62{{ substr($package->nomor_telepon, 1, strlen($package->nomor_telepon)) }}?text=Halo, saya ingin memesan Paket Travel *{{ $package->nama_paket }}*" class="btn btn-success">Pesan Paket Wisata</a>
+            @else
+              <a href="https://wa.me/{{ $package->nomor_telepon }}?text=Halo, saya ingin memesan Paket Travel *{{ $package->nama_paket }}*" class="btn btn-success">Pesan Paket Wisata</a>
+            @endif
         </div>
         
         
