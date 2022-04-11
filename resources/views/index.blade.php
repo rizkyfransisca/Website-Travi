@@ -40,7 +40,7 @@
             <a class="nav-link" href="/tour-package">Tour Package</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="/join-us">Join Us</a>
+            <a class="nav-link" href="/tour-package/create">Join Us</a>
           </li>
           <li class="nav-item me-2">
             <a class="nav-link" href="">About</a>
@@ -56,7 +56,7 @@
           kunjungi, mengenal adat dan budaya di suatu daerah
         </p>
         <div class="d-flex" style="margin: 0;">
-          <a class="btn-search px-3 py-2" href="" role="button">
+          <a class="btn-search px-3 py-2" href="/destination" role="button">
             <img src="/Gambar/search.png" class="mb-1" width="18px" alt="" />
           </a>
           <label class="ms-3 align-self-center">Lihat Detail</label>
@@ -66,27 +66,24 @@
     <div class="container col-lg-5 mx-auto home-2 text-center">
       <h4 class="title-home-2 mb-3">Kembangkan Bisnis Anda Bersama Kami</h4>
       <p class="desc-home-2 mb-5">Travi hadir untuk meningkatkan bisnis anda</p>
-      <a class="btn-mulai px-3 py-3 align-self-center" href="" role="button"
+      <a class="btn-mulai px-3 py-3 align-self-center" href="/tour-package/create" role="button"
         >Mulai Sekarang</a
       >
     </div>
-    <div class="container d-flex col-lg-7 mx-auto home-3">
+    <div class="container d-flex justify-content-center col-lg-7 mx-auto home-3">
       <div class="text-center">
         <div class="circle-1 mx-4"></div>
         <h5 class="mt-4">Tana Toraja</h5>
       </div>
       <div class="text-center">
         <div class="circle-2 mx-4"></div>
-        <h5 class="mt-4">Tana Bali</h5>
+        <h5 class="mt-4">Bali</h5>
       </div>
       <div class="text-center">
         <div class="circle-3 mx-4"></div>
-        <h5 class="mt-4">Tana Karawang</h5>
+        <h5 class="mt-4">Jawa Timur</h5>
       </div>
     </div>
-    <div class="container col-lg-5 mx-auto home-4 text-center">
-      <h4 class="partner">Our Partnership</h4>
-    </div>
-    <br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br />
   </body>
 </html>

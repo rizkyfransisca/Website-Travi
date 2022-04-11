@@ -64,7 +64,7 @@
               <img
                 src="/Gambar/eventfestival/{{ $event->gambar }}"
                 class="card-img-top"
-                style="height: 250px"
+                style="height: 300px"
               />
               <div class="card-body">
                 <h5 class="card-title text-center">
