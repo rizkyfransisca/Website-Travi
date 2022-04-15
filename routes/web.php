@@ -7,6 +7,7 @@ use App\Http\Controllers\TourPackageController;
 use App\Http\Controllers\EventFestivalController;
 use App\Http\Controllers\AdminEventFestivalController;
 use App\Http\Controllers\AdminDestinationController;
+use App\Http\Controllers\AdminLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,17 @@ use App\Http\Controllers\AdminDestinationController;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/admin/login', function(){
+    return view('login');
+});
+
+Route::post('/admin/logout', function(){
+    session()->forget('islogin');
+    return view('login');
+});
+
+Route::post('/admin/login', [AdminLoginController::class, 'login']);
 
 Route::resource('destination', DestinationController::class);
 Route::resource('event-festival', EventFestivalController::class);

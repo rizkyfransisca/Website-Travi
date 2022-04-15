@@ -14,10 +14,21 @@ class AdminDestinationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function checkLogin(){
+        if(!session()->has('islogin')){
+            return false;
+        }else{
+            return true;
+        }
+    }
     public function index()
     {
-        $destinations = Destination::get();
-        return view('destination.data_destination', ['destination' => $destinations]);
+        if($this->checkLogin()){
+            $destinations = Destination::get();
+            return view('destination.data_destination', ['destination' => $destinations]);
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     /**

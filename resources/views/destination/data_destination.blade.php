@@ -35,6 +35,14 @@
               >Event & Festival</a
             >
           </li>
+          @if (session()->has('islogin'))
+            <li class="nav-item me-3">
+              <form action="/admin/logout" method="POST">
+                  @csrf
+                  <button class="btn btn-success">Logout</button>
+              </form>
+            </li>
+          @endif
         </ul>
       </div>
     </div>

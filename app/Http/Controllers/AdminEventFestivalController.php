@@ -9,10 +9,21 @@ use Illuminate\Support\Str;
 
 class AdminEventFestivalController extends Controller
 {
+    public function checkLogin(){
+        if(!session()->has('islogin')){
+            return false;
+        }else{
+            return true;
+        }
+    }
     public function index()
     {
-        $events = EventFestival::get();
-        return view('eventfestival.data_event_festival', ['event' => $events]);
+        if($this->checkLogin()){
+            $events = EventFestival::get();
+            return view('eventfestival.data_event_festival', ['event' => $events]);
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     public function create()

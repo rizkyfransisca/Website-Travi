@@ -38,15 +38,14 @@
     </div>
     <div class="container-fluid bg-home-1"></div>
     <section class="container login-view col-4 mx-auto mt-5">
-        @if(session()->has('loginError'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('loginError') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
         <form action="/admin/login" method="post">
             @csrf
             <h2 class="text-center">Login</h2>
+            @if(session()->has('failed'))
+                <div class="alert alert-danger mt-3" role="alert">
+                    {{ session('failed') }}
+                </div>
+            @endif
             <div class="my-3">
                 <label for="email" class="form-label">Email</label>
                 <input name="email" type="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
