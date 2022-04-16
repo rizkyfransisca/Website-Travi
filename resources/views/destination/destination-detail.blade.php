@@ -66,6 +66,7 @@
         <h3 class="mb-4">{{ $desti->judul }}</h3>
         <p>Lokasi : <i>{{ $desti->lokasi }}</i></p>
         <p>{!! $desti->deskripsi !!}</p>
+        <a href="/destination">Back to post</a>
     </div>
     <script>
       imgValue = document.getElementById('img-value').textContent
