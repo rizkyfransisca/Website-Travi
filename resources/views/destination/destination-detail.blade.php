@@ -61,7 +61,7 @@
         </ul>
       </div>
     </div>
-    <div class="container-fluid bg-artikel" id='bg-artikel'></div>
+    <div class="container bg-artikel" id='bg-artikel'></div>
     <div class="container mt-4 mb-5 title-home-1">
         <h3 class="mb-4">{{ $desti->judul }}</h3>
         <p>Lokasi : <i>{{ $desti->lokasi }}</i></p>

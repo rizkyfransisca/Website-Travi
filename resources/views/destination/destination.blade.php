@@ -79,11 +79,11 @@
       <div class="row">
         @foreach ($list as $event)
           <div class="col-6">
-            <div class="card" style="width: 28rem;">
+            <div class="card mx-auto mb-3" style="width: 32rem;">
               <img
                 src="/Gambar/destinations/{{ $event->gambar }}"
                 class="card-img-top"
-                alt="..."
+                style="height: 300px"
               />
               <div class="card-body">
                 <h5 class="card-title text-center">
@@ -91,7 +91,7 @@
                 </h5>
                 <p class="card-text">
                   <b>Lokasi :</b> <i>{{ $event->lokasi }}</i><br>
-                  {!! $event->excerpt !!}
+                  {{ $event->excerpt }}
                 </p>
                 <a href="/destination/{{ $event->id }}" class="" style="float: right;">Lihat detail</a>
               </div>
