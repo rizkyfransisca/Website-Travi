@@ -95,5 +95,20 @@ class DatabaseSeeder extends Seeder
             'excerpt' => 'Rekomendasi destinasi wisata yang wajib kamu kunjungi adalah Desa Wisata Waerebo yang berada di Kabupaten Manggarai, Nusa Tenggara Timur...',
             'deskripsi' => '<p>Rekomendasi destinasi wisata yang wajib kamu kunjungi adalah Desa Wisata Waerebo yang berada di Kabupaten Manggarai, Nusa Tenggara Timur. Desa Waerebo ini sangat cocok bagi Anda pencinta alam dan menyukai tantangan.</p><p>Pasalnya, Desa Waerebo tertelatak pada ketinggian 1.200 meter di atas permukaan laut berada di barat daya kota Ruteng. Untuk sampai ke tempatnya memerlukan tenaga ekstra. Namun, tenaga yang sudah dikeluarkan bakal terbayarkan dengan hamparan pemandangan bukit yang hijau, sejuk, dan asri.</p><p>Desa Waerebo juga menjadi salah satu desa yang masih mempertahankan kearifan lokal dan memiliki keunikan, baik dari segi adat istiadatnya, struktur bangunan, cara hidup dan juga kesehariannya. Tidak hanya itu, Desa Wae Rebo juga menawarkan pemandangan unik rumah adatnya juga pemandangan alam dan keseharian masyarakatnya.</p>'
         ]);
+        Destination::create([
+            'judul' => 'Desan Argosari',
+            'lokasi' => 'Lumajang, Jawa Timur',
+            'gambar' => '1650083400desa-argosari-lumajang.jpg',
+            'excerpt' => 'Desa Argosari merupakan pintu masuk sebelum mendaki ke puncak B29 dan B30. Wisata yang ditawarkan begitu memanjakan mata Anda yaitu melihat pemandangan keindahan dari sisi yang berbeda Gunung Bromo.....',
+            'deskripsi' => '<p>Desa Argosari merupakan pintu masuk sebelum mendaki ke puncak B29 dan B30. Wisata yang ditawarkan begitu memanjakan mata Anda yaitu melihat pemandangan keindahan dari sisi yang berbeda Gunung Bromo.</p><p>Lokasinya berada di Kecamatan Senduro, Kabupaten Lumajang, Jawa Timur. Desa ini juga dikenal dengan negeri di atas awan. Selain itu ada titik-titik tertentu yang jika beruntung akan dapat melihat Kota Pisang ini dari ketinggian.</p><p>JIka malam tiba, desa ini cocook untuk dijadikan spot foto Milky Way selain di puncak B29. Destinasi ini sangat jauh dari hiruk pikuk ibukota serta udaranya masih segar dan sejuk, sangat cocok untuk menjadi obat jenuh dan stress.</p>'
+        ]);
+
+        Destination::create([
+            'judul' => 'Desan Penglipuran',
+            'lokasi' => 'Bangli, Bali',
+            'gambar' => '1650083416Desa-Penglipuran-Bangli-Bali.jpg',
+            'excerpt' => 'Bali tidak hanya menyajikan beragam keindahan pantai yang mempesona, tetapi juga bisa sebagai objek wisata edukasi yang mempelajari kebudayaan dan adat yang khas, seperti salah satunya ialah....',
+            'deskripsi' => '<p>Bali tidak hanya menyajikan beragam keindahan pantai yang mempesona, tetapi juga bisa sebagai objek wisata edukasi yang mempelajari kebudayaan dan adat yang khas, seperti salah satunya ialah di Desa Penglipuran.</p><p>Desa Penglipuran sebuah desa yang masih mempertahankan kebudayaan dan adat istiadat yang masih sangat kental. Lokasinya berada di Desa Kubu, Kabupaten Bangli, Pravinsi Bali berada di ketinggian sekitar 600 hingga 700 meter diatas permukaan laut.</p><p>Daya tarik yang ditawarkan Desa Penglipuran ini diantaranya ialah pemandangan yang asri dan udara yang masih segar karena banyaknya tanaman hijau yang terhampar sejauh mata memandang. Selain itu, pastinya jauh dari polusi dan kebersihan yang selalu terjaga.</p><p>Pasalnya, untuk memasuki wilayah desa ini, pengunjung dilarang untuk membawa kendaraan apapun dan dilarang membuang sampah sembarangan, sehingga kualitas udara dan kebersihan lingkungan tetap terjaga.</p>'
+        ]);
     }
 }
