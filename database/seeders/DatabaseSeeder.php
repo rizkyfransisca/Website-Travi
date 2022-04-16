@@ -81,35 +81,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Destination::create([
-            'judul' => 'Upacara Adat Jawa Timur Kebo-keboan',
-            'lokasi' => 'Banyuwangi, Jawa Timur',
-            'gambar' => '1649682948Kebo-keboan.jpg',
-            'excerpt' => 'Pada saat setiap tahun masyarakat daerah Banyuwangi berusaha untuk menjaga sebuah tradisi kemurnian dan juga kesakralan budaya mereka. Asal-usul tradisi kebo-keboan ini berasal karena banyaknya sebuah...',
-            'deskripsi' => '<p>Pada saat setiap tahun masyarakat daerah Banyuwangi berusaha untuk menjaga sebuah tradisi kemurnian dan juga kesakralan budaya mereka. Asal-usul tradisi kebo-keboan ini berasal karena banyaknya sebuah musibah pageblok.</p><p>Pada saat waktu itu masyarakat terkena wabah penyakit dan juga tanaman yang dapat merugikan warga daerah tersebut. Banyak dari warga yang meninggal dan juga kelaparan akibat adanya penyakit misterius tersebut.</p><p>Nah, pada saat terjadi bencana wabah tersebut, salah satu dari sesepuh bernama mbah Karti mendapat wangsit atau mimpi dari semedinya di sebuah bukit untuk melakukan kebo-keboan dan juga mengangungkan Dewi Sri</p><p>Singkat cerita ada sebuah keajaiban yang tak disangka muncul ketika waga sekitar melaksanakan ritual Kebo-Keboan. Banyak dari warga yang sakit mendadak menjadi sehat, juga hama yang menyerang tanaman warga hilang tidak tau kemana. Akhirnya mulai saat itu ritual kebo-keboan terus dilestarikan oleh masyarakat daerah itu, kemudian muncul perasaan resah dan juga takut jika tidak melakukan tradisi kebo-keboan tersebut.</p>'
+            'judul' => 'Desan Sade',
+            'lokasi' => 'Lombok, NTT',
+            'gambar' => '',
+            'excerpt' => 'Lombok memiliki ragam destinasi wisata kelas dunia yang menakjubkan. Tak sekadar pesona alam dan keelokan panorama laut semata....',
+            'deskripsi' => '<p>Lombok memiliki ragam destinasi wisata kelas dunia yang menakjubkan. Tak sekadar pesona alam dan keelokan panorama laut semata. Namun, kearifan lokal masyarakat adat yang masih terjaga memiliki daya pikat tersendir salah satunya ialah Desa Sasak Sade.</p><p>Desa Sade menampilkan suasana perkampungan pribumi. Bangunan atap rumah warga masih terbuat dari ijuk, kuda-kuda atapnya memakai bambu tanpa paku, tembok dari anyaman bambu, dan langsung beralaskan tanah. Orang Sasak Sade menamakan bangunan itu bale. Berfoto bersama suku asli dengan keramahan nan khas menja.</p>'
         ]);
         
         Destination::create([
-            'judul' => 'Upacara Adat Jawa Timur Labuh Sesaji',
-            'lokasi' => 'Magetan, Jawa Timur',
-            'gambar' => '1649683031Labuh-Sesaji.jpg',
-            'excerpt' => 'Labuh sesaji adalah salah satu kebiasaan tahunan yang telah digelar di Telaga Sarangan, Magetan. Waktu untuk melaksanakan tradisi Labuh Sesaji ini pada bulan Ruwah, hari Jum’at Pon. Tujuan dari upacara...',
-            'deskripsi' => '<p>Labuh sesaji adalah salah satu kebiasaan tahunan yang telah digelar di Telaga Sarangan, Magetan. Waktu untuk melaksanakan tradisi Labuh Sesaji ini pada bulan Ruwah, hari Jum’at Pon.</p><p>Tujuan dari upacara Labuh sesaji ini sebagai tanda terima kasih dari masyarakat kepada Tuhan Yang Maha Esa. Masyarakat menganggap bahwa Telaga Sarangan adalah sebuah hadiah dari Tuhan, Telaga Sarangan dianggap dapat mendatangkan kemakmuran bagi masyarakat Magetan dan juga Masyarakat Indonesia.</p>'
-        ]);
-
-        Destination::create([
-            'judul' => 'Upacara Adat Jawa Timur Larung Sesaji',
-            'lokasi' => 'Jawa Timur',
-            'gambar' => '1649683104Larung-Sesaji.jpg',
-            'excerpt' => 'Upacara adat Larung sesaji berbeda dengan upacara adat Labuh sesaji. Larung sesaji adalah sebuah tradisi upacara adat yang dilakukan oleh masyarakat Jawa Timur yang berada di daerah pesisir pantai uta...',
-            'deskripsi' => '<p>Upacara adat Larung sesaji berbeda dengan upacara adat Labuh sesaji. Larung sesaji adalah sebuah tradisi upacara adat yang dilakukan oleh masyarakat Jawa Timur yang berada di daerah pesisir pantai utaran dan pantai selatan.</p><p>Upacara ini dapat dilakukan dengan cara menghanyutkan sesajen ke laut dalam rangka sebagai tanda rasa syukur dari hasil tangkapan ikan selama mereka melaut. Upacara larung sesaji ini umumnya dilaksanakan pada tanggal 1 muharram atau satu suro.</p>'
-        ]);
-
-        Destination::create([
-            'judul' => 'Upacara Adat Jawa Timur Grebegan',
-            'lokasi' => 'Jawa Timur',
-            'gambar' => '1649683175Grebegan.jpg',
-            'excerpt' => 'Grebegan adalah salah satu tradisi upacara adat yang memiliki sifat kesyukuran, dilakukan bersama-sama oleh masyarakat suku Jawa dengan tokoh utamanya yaitu seorang raja. Upacara adat Grebegan ini dil...',
-            'deskripsi' => '<p>Grebegan adalah salah satu tradisi upacara adat yang memiliki sifat kesyukuran, dilakukan bersama-sama oleh masyarakat suku Jawa dengan tokoh utamanya yaitu seorang raja. Upacara adat Grebegan ini dilaksanakan selama tiga kali dalam datu tahun, diantaranya yaitu pada tanggal 12 Mulud, 1 Syawal, dan juga tanggal 10 bulan ke-12 Masehi.</p><p>Pada saat upacara grebegan ini raja mengeluarkan sedekahnya berupa hasil alam seperti sayuran dan juga sejenisnya, umumnya sedekah ini dibentuk seperti bidang kerucut seperti gunung, yang akan di rebutkan oleh masyakat.</p>'
+            'judul' => 'Desa Warebo',
+            'lokasi' => 'Flores, NTT',
+            'gambar' => '',
+            'excerpt' => 'Rekomendasi destinasi wisata yang wajib kamu kunjungi adalah Desa Wisata Waerebo yang berada di Kabupaten Manggarai, Nusa Tenggara Timur...',
+            'deskripsi' => '<p>Rekomendasi destinasi wisata yang wajib kamu kunjungi adalah Desa Wisata Waerebo yang berada di Kabupaten Manggarai, Nusa Tenggara Timur. Desa Waerebo ini sangat cocok bagi Anda pencinta alam dan menyukai tantangan.</p><p>Pasalnya, Desa Waerebo tertelatak pada ketinggian 1.200 meter di atas permukaan laut berada di barat daya kota Ruteng. Untuk sampai ke tempatnya memerlukan tenaga ekstra. Namun, tenaga yang sudah dikeluarkan bakal terbayarkan dengan hamparan pemandangan bukit yang hijau, sejuk, dan asri.</p><p>Desa Waerebo juga menjadi salah satu desa yang masih mempertahankan kearifan lokal dan memiliki keunikan, baik dari segi adat istiadatnya, struktur bangunan, cara hidup dan juga kesehariannya. Tidak hanya itu, Desa Wae Rebo juga menawarkan pemandangan unik rumah adatnya juga pemandangan alam dan keseharian masyarakatnya.</p>'
         ]);
     }
 }
