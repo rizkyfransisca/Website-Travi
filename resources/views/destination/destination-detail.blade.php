@@ -30,7 +30,7 @@
     <!--Navbar Atas-->
     <div class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid px-4">
-        <a class="travi navbar-brand ms-2" href="">
+        <a class="travi navbar-brand ms-2" href="/">
           <img
             src="/Gambar/daun.png"
             width="30px"
@@ -50,13 +50,13 @@
             <a class="nav-link" href="/event-festival">Event & Festival</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="tour_package.html">Tour Package</a>
+            <a class="nav-link" href="/tour-package">Tour Package</a>
           </li>
           <li class="nav-item me-3">
-            <a class="nav-link" href="join_us.html">Join Us</a>
+            <a class="nav-link" href="/tour-package/create">Join Us</a>
           </li>
           <li class="nav-item me-2">
-            <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="/about">About</a>
           </li>
         </ul>
       </div>
