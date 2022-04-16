@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
         Destination::create([
             'judul' => 'Desan Sade',
             'lokasi' => 'Lombok, NTT',
-            'gambar' => '',
+            'gambar' => '1650081312desa-sade-lombok.jpg',
             'excerpt' => 'Lombok memiliki ragam destinasi wisata kelas dunia yang menakjubkan. Tak sekadar pesona alam dan keelokan panorama laut semata....',
             'deskripsi' => '<p>Lombok memiliki ragam destinasi wisata kelas dunia yang menakjubkan. Tak sekadar pesona alam dan keelokan panorama laut semata. Namun, kearifan lokal masyarakat adat yang masih terjaga memiliki daya pikat tersendir salah satunya ialah Desa Sasak Sade.</p><p>Desa Sade menampilkan suasana perkampungan pribumi. Bangunan atap rumah warga masih terbuat dari ijuk, kuda-kuda atapnya memakai bambu tanpa paku, tembok dari anyaman bambu, dan langsung beralaskan tanah. Orang Sasak Sade menamakan bangunan itu bale. Berfoto bersama suku asli dengan keramahan nan khas menja.</p>'
         ]);
@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
         Destination::create([
             'judul' => 'Desa Warebo',
             'lokasi' => 'Flores, NTT',
-            'gambar' => '',
+            'gambar' => '1650081325warebo.jpeg',
             'excerpt' => 'Rekomendasi destinasi wisata yang wajib kamu kunjungi adalah Desa Wisata Waerebo yang berada di Kabupaten Manggarai, Nusa Tenggara Timur...',
             'deskripsi' => '<p>Rekomendasi destinasi wisata yang wajib kamu kunjungi adalah Desa Wisata Waerebo yang berada di Kabupaten Manggarai, Nusa Tenggara Timur. Desa Waerebo ini sangat cocok bagi Anda pencinta alam dan menyukai tantangan.</p><p>Pasalnya, Desa Waerebo tertelatak pada ketinggian 1.200 meter di atas permukaan laut berada di barat daya kota Ruteng. Untuk sampai ke tempatnya memerlukan tenaga ekstra. Namun, tenaga yang sudah dikeluarkan bakal terbayarkan dengan hamparan pemandangan bukit yang hijau, sejuk, dan asri.</p><p>Desa Waerebo juga menjadi salah satu desa yang masih mempertahankan kearifan lokal dan memiliki keunikan, baik dari segi adat istiadatnya, struktur bangunan, cara hidup dan juga kesehariannya. Tidak hanya itu, Desa Wae Rebo juga menawarkan pemandangan unik rumah adatnya juga pemandangan alam dan keseharian masyarakatnya.</p>'
         ]);
