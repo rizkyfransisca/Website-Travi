@@ -28,79 +28,101 @@ class AdminEventFestivalController extends Controller
 
     public function create()
     {
-        return view('eventfestival.add_event_festival');
+        if($this->checkLogin()){
+            return view('eventfestival.add_event_festival');
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'judul' => 'required|max:255',
-            'lokasi' => 'required|max:255',
-            'deskripsi' => 'required',
-            'gambar' => 'image|file|max:1024'
-        ]);
+        if($this->checkLogin()){
+            $validatedData = $request->validate([
+                'judul' => 'required|max:255',
+                'lokasi' => 'required|max:255',
+                'deskripsi' => 'required',
+                'gambar' => 'image|file|max:1024'
+            ]);
 
-        $waktu = "";
-        $validatedData['gambar'] = "";
-        if($file = $request->hasFile('gambar')) {
-            $file = $request->file('gambar') ;
-            $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/Gambar/eventfestival';
-            $waktu = time();
-            $file->move($destinationPath,$waktu . $fileName);
-            $validatedData['gambar'] = $waktu . $fileName;
+            $waktu = "";
+            $validatedData['gambar'] = "";
+            if($file = $request->hasFile('gambar')) {
+                $file = $request->file('gambar') ;
+                $fileName = $file->getClientOriginalName() ;
+                $destinationPath = public_path().'/Gambar/eventfestival';
+                $waktu = time();
+                $file->move($destinationPath,$waktu . $fileName);
+                $validatedData['gambar'] = $waktu . $fileName;
+            }
+
+            $validatedData['slug'] = SlugService::createSlug(EventFestival::class, 'slug', $request->judul);
+            $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 200);
+
+            EventFestival::create($validatedData);
+            return redirect('/admin/event-festival')->with('success', 'Data berhasil disimpan');
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
         }
-
-        $validatedData['slug'] = SlugService::createSlug(EventFestival::class, 'slug', $request->judul);
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 200);
-
-        EventFestival::create($validatedData);
-        return redirect('/admin/event-festival')->with('success', 'Data berhasil disimpan');
     }
 
     public function show($id)
     {
-        return view('eventfestival.view_event_festival', ['event' => EventFestival::find($id)]);
+        if($this->checkLogin()){
+            return view('eventfestival.view_event_festival', ['event' => EventFestival::find($id)]);
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     public function edit($id)
     {
-        return view('eventfestival.edit_event_festival', [
-            'event' => EventFestival::find($id)
-        ]);
+        if($this->checkLogin()){
+            return view('eventfestival.edit_event_festival', ['event' => EventFestival::find($id)]);
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'judul' => 'required|max:255',
-            'lokasi' => 'required|max:255',
-            'deskripsi' => 'required',
-            'gambar' => 'image|file|max:1024'
-        ]);
-
-        $waktu = "";
-        $validatedData['gambar'] = "";
-        if($file = $request->hasFile('gambar')) {
-            $file = $request->file('gambar') ;
-            $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/Gambar/eventfestival';
-            $waktu = time();
-            $file->move($destinationPath,$waktu . $fileName);
-            $validatedData['gambar'] = $waktu . $fileName;
+        if($this->checkLogin()){
+            $validatedData = $request->validate([
+                'judul' => 'required|max:255',
+                'lokasi' => 'required|max:255',
+                'deskripsi' => 'required',
+                'gambar' => 'image|file|max:1024'
+            ]);
+    
+            $waktu = "";
+            $validatedData['gambar'] = "";
+            if($file = $request->hasFile('gambar')) {
+                $file = $request->file('gambar') ;
+                $fileName = $file->getClientOriginalName() ;
+                $destinationPath = public_path().'/Gambar/eventfestival';
+                $waktu = time();
+                $file->move($destinationPath,$waktu . $fileName);
+                $validatedData['gambar'] = $waktu . $fileName;
+            }
+    
+            $validatedData['slug'] = SlugService::createSlug(EventFestival::class, 'slug', $request->judul);
+            $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 200);
+    
+            EventFestival::where('id', $id)
+                    ->update($validatedData);
+            return redirect('/admin/event-festival')->with('success', 'Data berhasil diubah');
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
         }
-
-        $validatedData['slug'] = SlugService::createSlug(EventFestival::class, 'slug', $request->judul);
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->deskripsi), 200);
-
-        EventFestival::where('id', $id)
-                ->update($validatedData);
-        return redirect('/admin/event-festival')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy($id)
     {
-        EventFestival::destroy($id);
-        return redirect('/admin/event-festival')->with('success', 'Data berhasil dihapus');
+        if($this->checkLogin()){
+            EventFestival::destroy($id);
+            return redirect('/admin/event-festival')->with('success', 'Data berhasil dihapus');
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 }
