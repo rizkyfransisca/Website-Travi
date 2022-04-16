@@ -29,7 +29,7 @@
     <!--Navbar Atas-->
     <div class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid px-4">
-        <a class="travi navbar-brand ms-2" href="/">
+        <a class="travi navbar-brand ms-2">
           <img
             src="/Gambar/daun.png"
             width="30px"
@@ -45,6 +45,14 @@
           <li class="nav-item me-3">
             <a class="nav-link" href="/admin/event-festival">Event & Festival</a>
           </li>
+          @if (session()->has('islogin'))
+            <li class="nav-item me-3">
+              <form action="/admin/logout" method="POST">
+                  @csrf
+                  <button class="btn btn-success">Logout</button>
+              </form>
+            </li>
+          @endif
         </ul>
       </div>
     </div>

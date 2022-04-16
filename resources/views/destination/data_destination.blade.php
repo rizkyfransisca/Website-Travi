@@ -17,7 +17,7 @@
     <!--Navbar Atas-->
     <div class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid px-4">
-        <a class="travi navbar-brand ms-2" href="/">
+        <a class="travi navbar-brand ms-2">
           <img
             src="/Gambar/daun.png"
             width="30px"
@@ -83,7 +83,7 @@
               <td>{{ $destinations->slug }}</td>
               <td>{!! $destinations->excerpt !!}</td>
               <td>{{ $destinations->lokasi }}</td>
-              <td>Gambar</td>
+              <td>{{ $destinations->gambar }}</td>
               <td>
                 <div class="text-center">  
                   <div class="mb-2">

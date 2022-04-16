@@ -38,7 +38,11 @@ class AdminDestinationController extends Controller
      */
     public function create()
     {
-        return view('destination.add_destination');
+        if($this->checkLogin()){
+            return view('destination.add_destination');
+        }else{
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     /**
@@ -49,29 +53,33 @@ class AdminDestinationController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'judul' => 'required|max:255',
-            'lokasi' => 'required|max:255',
-            'deskripsi' => 'required',
-            'gambar' => 'image|file|max:1024'
-        ]);
+        if($this->checkLogin()) {
+            $validatedData = $request->validate([
+                'judul' => 'required|max:255',
+                'lokasi' => 'required|max:255',
+                'deskripsi' => 'required',
+                'gambar' => 'image|file|max:1024'
+            ]);
 
-        $waktu = "";
-        $validatedData['gambar'] = "";
-        if($file = $request->hasFile('gambar')) {
-            $file = $request->file('gambar') ;
-            $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/Gambar/destinations';
-            $waktu = time();
-            $file->move($destinationPath,$waktu . $fileName);
-            $validatedData['gambar'] = $waktu . $fileName;
+            $waktu = "";
+            $validatedData['gambar'] = "";
+            if($file = $request->hasFile('gambar')) {
+                $file = $request->file('gambar') ;
+                $fileName = $file->getClientOriginalName() ;
+                $destinationPath = public_path().'/Gambar/destinations';
+                $waktu = time();
+                $file->move($destinationPath,$waktu . $fileName);
+                $validatedData['gambar'] = $waktu . $fileName;
+            }
+
+            $validatedData['slug'] = SlugService::createSlug(Destination::class, 'slug', $request->judul);
+            $validatedData['excerpt'] = Str::limit($request->deskripsi, 200);
+
+            Destination::create($validatedData);
+            return redirect('/admin/destination')->with('success', 'Data berhasil disimpan');
+        } else {
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
         }
-
-        $validatedData['slug'] = SlugService::createSlug(Destination::class, 'slug', $request->judul);
-        $validatedData['excerpt'] = Str::limit($request->deskripsi, 200);
-
-        Destination::create($validatedData);
-        return redirect('/admin/destination')->with('success', 'Data berhasil disimpan');
     }
 
     /**
@@ -82,7 +90,11 @@ class AdminDestinationController extends Controller
      */
     public function show($id)
     {
-        return view('destination.view_destination', ['destination' => Destination::find($id)]);
+        if($this->checkLogin()){
+            return view('destination.view_destination', ['destination' => Destination::find($id)]);
+        } else {
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 
     /**
@@ -93,9 +105,13 @@ class AdminDestinationController extends Controller
      */
     public function edit($id)
     {
-        return view('destination.edit_destination', [
-            'destination' => Destination::find($id)
-        ]);
+        if($this->checkLogin()){
+            return view('destination.edit_destination', [
+                'destination' => Destination::find($id)
+            ]);
+        } else {
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
 
     }
 
@@ -108,30 +124,34 @@ class AdminDestinationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'judul' => 'required|max:255',
-            'lokasi' => 'required|max:255',
-            'deskripsi' => 'required',
-            'gambar' => 'image|file|max:1024'
-        ]);
+        if($this->checkLogin()){
+            $validatedData = $request->validate([
+                'judul' => 'required|max:255',
+                'lokasi' => 'required|max:255',
+                'deskripsi' => 'required',
+                'gambar' => 'image|file|max:1024'
+            ]);
 
-        $waktu = "";
-        $validatedData['gambar'] = "";
-        if($file = $request->hasFile('gambar')) {
-            $file = $request->file('gambar') ;
-            $fileName = $file->getClientOriginalName() ;
-            $destinationPath = public_path().'/Gambar/destinations';
-            $waktu = time();
-            $file->move($destinationPath,$waktu . $fileName);
-            $validatedData['gambar'] = $waktu . $fileName;
+            $waktu = "";
+            $validatedData['gambar'] = "";
+            if($file = $request->hasFile('gambar')) {
+                $file = $request->file('gambar') ;
+                $fileName = $file->getClientOriginalName() ;
+                $destinationPath = public_path().'/Gambar/destinations';
+                $waktu = time();
+                $file->move($destinationPath,$waktu . $fileName);
+                $validatedData['gambar'] = $waktu . $fileName;
+            }
+
+            $validatedData['slug'] = SlugService::createSlug(Destination::class, 'slug', $request->judul);
+            $validatedData['excerpt'] = Str::limit($request->deskripsi, 200);
+
+            Destination::where('id', $id)
+                    ->update($validatedData);
+            return redirect('/admin/destination')->with('success', 'Data berhasil dirubah');
+        } else {
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
         }
-
-        $validatedData['slug'] = SlugService::createSlug(Destination::class, 'slug', $request->judul);
-        $validatedData['excerpt'] = Str::limit($request->deskripsi, 200);
-
-        Destination::where('id', $id)
-                ->update($validatedData);
-        return redirect('/admin/destination')->with('success', 'Data berhasil dirubah');
     }
 
     /**
@@ -142,7 +162,11 @@ class AdminDestinationController extends Controller
      */
     public function destroy($id)
     {
-        Destination::destroy($id);
-        return redirect('/admin/destination')->with('success', 'Data berhasil dihapus');
+        if($this->checkLogin()){
+            Destination::destroy($id);
+            return redirect('/admin/destination')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('/admin/login')->with('failed', 'Silahkan Login');
+        }
     }
 }
